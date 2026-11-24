@@ -27,12 +27,28 @@ except Exception as e:
 def load_data():
     df = pd.read_csv('live_grid_for_python_.csv')
     
-    # Extract lat/lon
-    def extract_coords(geo_str):
-        coords = geo_str.replace('POINT (', '').replace(')', '').split(' ')
-        return pd.Series([float(coords[1]), float(coords[0])])
-    
+        # Extract lat/lon
+    import json
+    def extract_coords(geo_data):
+        if isinstance(geo_data, str):
+            # Case 1: JSON format
+            if geo_data.startswith('{'):
+                try:
+                    data = json.loads(geo_data)
+                    return pd.Series([data['coordinates'][1], data['coordinates'][0]])
+                except:
+                    pass
+            # Case 2: WKT format "POINT (lon lat)"
+            if 'POINT' in geo_data:
+                try:
+                    coords = geo_data.replace('POINT (', '').replace(')', '').split(' ')
+                    return pd.Series([float(coords[1]), float(coords[0])])
+                except:
+                    pass
+        return pd.Series([None, None])
+
     df[['latitude', 'longitude']] = df['.geo'].apply(extract_coords)
+    df = df.dropna(subset=['latitude', 'longitude'])
     return df
 
 df_live = load_data()
