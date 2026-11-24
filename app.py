@@ -91,5 +91,5 @@ for _, row in df_live.iterrows():
 st_folium(m, width=1000, height=600)
 
 st.sidebar.header("About the AI")
-st.sidebar.write("This model uses a Random Forest Classifier trained on NASA Landslide data.")
-st.sidebar.write("Features used: Elevation, Slope, Rainfall, NDVI.")
+st.sidebar.write("This model uses a Random Forest Classifier trained on NASA Landslide data. Data is not live right now because code needs to be run everyday for live predictions...")
+st.sidebar.write("Features used: Elevation, Slope, Rainfall, NDVI. (PREDICTION DATE: 24 NOVEMBER 2026")
