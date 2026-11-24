@@ -38,4 +38,4 @@ NOTE: I TRIED TO ALSO USE SOIL DATA WIHT THE STATIC TERRAIN DATA, BUT IN THE END
 - **Google Earth Engine** (GEE Python API)
 - **Satellite Data:** Copernicus, MODIS, CHIRPS, GPM (NASA)
 
-
+#WEBSITE: https://landslide-ai-india-japan.streamlit.app/
