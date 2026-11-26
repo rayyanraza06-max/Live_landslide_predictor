@@ -28,7 +28,7 @@
 NOTE: I TRIED TO ALSO USE SOIL DATA WITH THE STATIC TERRAIN DATA, BUT IN THE END I HAD A LESSER ACCURACY AND RECALL, THUS I HAD TO DROP THE SOIL FEATURE..(OVERFITTING EXAMPLE)
 
 ## Repository Contents
-- `model_training.ipynb`: The Jupyter Notebook containing data extraction, feature engineering, and model training.
+- `Disaster_Management.ipynb`: The Jupyter Notebook containing data extraction, feature engineering, and model training.
 - `landslide_model.pkl`: The trained Random Forest model.
 - `live_risk_map.html`: The interactive live map generated for today.
 - `app.py`: The Streamlit web application code.
