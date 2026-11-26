@@ -25,7 +25,7 @@ except Exception as e:
 #for now, we load a pre-generated live CSV)
 @st.cache_data
 def load_data():
-    df = pd.read_csv('live_grid_for_python_.csv')
+    df = pd.read_csv('Data/live_grid_for_python_.csv')
     
         # Extract lat/lon
     import json
