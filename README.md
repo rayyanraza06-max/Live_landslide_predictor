@@ -9,7 +9,7 @@
 	Landslides are devastating disasters...traditional models are often regional and historical. This project uses MACHINE LEARNING combined with LIVE SATELLITE DATA to predict land slide risk for the day. (Map attached is of the specific day the code was run. Specifically on 24TH NOVEMBER 2026)
 
 #Working
-
+Thé system isn’t live because automation(cron) hasn’t been set up 
 --->Training Data
     - Hazards (Label 1): Real historical landslides from the NASA Landslide Catalog.
    - Safe (Label 0): Pseudo-absence points, filtered to remove steep slopes (>10°) to prevent label noise.
