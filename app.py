@@ -24,7 +24,7 @@ except Exception as e:
 # Load the Data
 @st.cache_data
 def load_data():
-    df = pd.read_csv('live_grid_for_python_.csv')
+    df = pd.read_csv('Data/live_grid_for_python_.csv')
     
     def extract_coords(geo_data):
         if isinstance(geo_data, str):
