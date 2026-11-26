@@ -10,16 +10,20 @@
 
 #Working
 Thé system isn’t live because automation(cron) hasn’t been set up 
+
 --->Training Data
     - Hazards (Label 1): Real historical landslides from the NASA Landslide Catalog.
    - Safe (Label 0): Pseudo-absence points, filtered to remove steep slopes (>10°) to prevent label noise.
+
 --->Features Extracted via Google Earth Engine:**
    - **Terrain:** Elevation & Slope (Copernicus DEM 30m)
    - **Vegetation:** NDVI (MODIS)
    - **Historical Climate:** 5-year Average Rainfall (CHIRPS)
+
 --->The AI Model:
    - A RANDOM FOREST CLASSIFIER (Scikit-Learn) trained with `class_weight='balanced'` to handle the imbalanced dataset.
    - **Accuracy:** ~91% (with a 97% recall rate for hazards, ensuring few disasters are missed).***accuracy likley inflated(check LIMITATIONS)****
+
 ---->The Live System:
    - The system queries NASA's **GPM (Global Precipitation Measurement)** satellite for the actual rainfall over the last 7 days.
    - It merges this live weather with the static terrain data and runs it through the Random Forest model.
