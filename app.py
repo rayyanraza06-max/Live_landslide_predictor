@@ -1,11 +1,10 @@
 import streamlit as st
 import pandas as pd
 import folium
+from folium.plugins import HeatMap
 from streamlit_folium import st_folium
 import joblib
 import json
-from datetime import datetime
-
 # Page Setup
 st.set_page_config(page_title="Live Landslide Risk AI", layout="wide", page_icon="🌍")
 st.title("Live Landslide Risk Predictor")
