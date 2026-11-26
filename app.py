@@ -104,7 +104,7 @@ st_folium(m, width=1100, height=600)
 
 # Sidebar (Snapshot Date & Model Info)
 st.sidebar.header("About the AI")
-st.sidebar.info("This model uses a Random Forest Classifier trained on NASA Landslide data, achieving 88% accuracy.")
+st.sidebar.info("This model uses a Random Forest Classifier trained on NASA Landslide data, achieving 91% accuracy.")
 st.sidebar.write("Features used: Elevation, Slope, Rainfall, NDVI.")
 
 st.sidebar.write("Data Snapshot Date: 24 November 2026")
