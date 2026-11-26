@@ -52,12 +52,10 @@ def load_data():
     return df
 
 df_live = load_data()
-
-# Predict
-features = ['DEM', 'slope_y', 'rainfall', 'NDVI']
 if 'slope' in df_live.columns:
     df_live = df_live.rename(columns={'slope': 'slope_y'})
-
+# Predict
+features = ['DEM', 'slope_y', 'rainfall', 'NDVI']
 X_live = df_live[features].dropna()
 df_live = df_live.loc[X_live.index]
 df_live['Prediction'] = rf.predict(X_live)
@@ -91,5 +89,5 @@ for _, row in df_live.iterrows():
 st_folium(m, width=1000, height=600)
 
 st.sidebar.header("About the AI")
-st.sidebar.write("This model uses a Random Forest Classifier trained on NASA Landslide data. Data is not live right now because code needs to be run everyday for live predictions...")
-st.sidebar.write("Features used: Elevation, Slope, Rainfall, NDVI. (PREDICTION DATE: 24 NOVEMBER 2026")
+st.sidebar.write("This model uses a Random Forest Classifier trained on NASA Landslide data. NOTE: This dashboard uses a cached snapshot of livedata. The pipeline is desgined to be run daily to refresh predictions...")
+st.sidebar.write("Features used: Elevation, Slope, Rainfall, NDVI. (PREDICTION DATE: 24 NOVEMBER 2026)")
