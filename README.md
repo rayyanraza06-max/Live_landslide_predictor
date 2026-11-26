@@ -30,7 +30,7 @@ NOTE: I TRIED TO ALSO USE SOIL DATA WITH THE STATIC TERRAIN DATA, BUT IN THE END
 ## Repository Contents
 - `Disaster_Management.ipynb`: The Jupyter Notebook containing data extraction, feature engineering, and model training.
 - `landslide_model.pkl`: The trained Random Forest model.
-- `live_risk_map.html`: The interactive live map generated for today.
+- `live_risk_map_v3.html`: The interactive live map generated for today.
 - `app.py`: The Streamlit web application code.
 
 ## Tech Stack
