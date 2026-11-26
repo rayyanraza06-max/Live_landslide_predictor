@@ -6,7 +6,7 @@
 
 #project Overview
 
-	Landslides are devastating disasters...traditional models are often regional and historical. This project uses MACHINE LEARNING combined with LIVE SATELLITE DATA to predict land slide risk fir the day. (Map attached is of the specific day the code was run. Specifically on 24TH NOVEMBER 2026)
+	Landslides are devastating disasters...traditional models are often regional and historical. This project uses MACHINE LEARNING combined with LIVE SATELLITE DATA to predict land slide risk for the day. (Map attached is of the specific day the code was run. Specifically on 24TH NOVEMBER 2026)
 
 #Working
 
@@ -25,7 +25,7 @@
    - It merges this live weather with the static terrain data and runs it through the Random Forest model.
    - It outputs a real-time interactive map (Folium) showing Safe (Green) and Hazard (Red) zones.
 
-NOTE: I TRIED TO ALSO USE SOIL DATA WIHT THE STATIC TERRAIN DATA, BUT IN THE END I HAD A LESSER ACCURACY AND RECALL, THUS I HAD TO DROP THE SOIL FEATURE..(OVERFITTING EXAMPLE)
+NOTE: I TRIED TO ALSO USE SOIL DATA WITH THE STATIC TERRAIN DATA, BUT IN THE END I HAD A LESSER ACCURACY AND RECALL, THUS I HAD TO DROP THE SOIL FEATURE..(OVERFITTING EXAMPLE)
 
 ## Repository Contents
 - `model_training.ipynb`: The Jupyter Notebook containing data extraction, feature engineering, and model training.
