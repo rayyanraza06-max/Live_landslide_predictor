@@ -3,11 +3,12 @@ import pandas as pd
 import folium
 from streamlit_folium import st_folium
 import joblib
+import json
 
-# 1. Page Setup
+# Page Setup
 st.set_page_config(page_title="Live Landslide Risk AI", layout="wide")
 st.title("Live Landslide Risk Predictor")
-st.markdown("**Regions:** India & Japan | **Powered by:** NASA GPM Live Rainfall & Random Forest AI")
+st.markdown("Regions: India & Japan | Powered by: NASA GPM Live Rainfall & Random Forest AI")
 
 # Load the Model
 @st.cache_resource
@@ -20,15 +21,11 @@ except Exception as e:
     st.error(f"Model not found. Please ensure landslide_model.pkl is uploaded. Error: {e}")
     st.stop()
 
-# Load the Data 
-# For a live app, we would connect to Earth Engine here. 
-#for now, we load a pre-generated live CSV)
+# Load the Data
 @st.cache_data
 def load_data():
-    df = pd.read_csv('Data/live_grid_for_python_.csv')
+    df = pd.read_csv('live_grid_for_python_.csv')
     
-        # Extract lat/lon
-    import json
     def extract_coords(geo_data):
         if isinstance(geo_data, str):
             # Case 1: JSON format
@@ -52,9 +49,12 @@ def load_data():
     return df
 
 df_live = load_data()
+
+# Change Column Names
 if 'slope' in df_live.columns:
     df_live = df_live.rename(columns={'slope': 'slope_y'})
-# Predict
+
+#Predict
 features = ['DEM', 'slope_y', 'rainfall', 'NDVI']
 X_live = df_live[features].dropna()
 df_live = df_live.loc[X_live.index]
@@ -68,7 +68,6 @@ m = folium.Map(location=[25.0, 95.0], zoom_start=4, tiles='Esri.WorldImagery')
 
 for _, row in df_live.iterrows():
     color = 'red' if row['Prediction'] == 1 else 'green'
-    
     tooltip_text = (
         f"<b>{'HAZARD' if row['Prediction'] == 1 else 'SAFE'}</b><br>"
         f"Slope: {row['slope_y']:.2f}°<br>"
@@ -85,9 +84,11 @@ for _, row in df_live.iterrows():
         tooltip=folium.Tooltip(tooltip_text)
     ).add_to(m)
 
-# Display Map in Streamlit
+# 7. Display Map in Streamlit
 st_folium(m, width=1000, height=600)
 
+# 8. Sidebar
 st.sidebar.header("About the AI")
-st.sidebar.write("This model uses a Random Forest Classifier trained on NASA Landslide data. NOTE: This dashboard uses a cached snapshot of livedata. The pipeline is desgined to be run daily to refresh predictions...")
+st.sidebar.write("This model uses a Random Forest Classifier trained on NASA Landslide data.")
+st.sidebar.write("Data is not live right now because code needs to be run everyday for live predictions...")
 st.sidebar.write("Features used: Elevation, Slope, Rainfall, NDVI. (PREDICTION DATE: 24 NOVEMBER 2026)")
