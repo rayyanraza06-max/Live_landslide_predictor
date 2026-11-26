@@ -43,6 +43,7 @@ NOTE: I TRIED TO ALSO USE SOIL DATA WITH THE STATIC TERRAIN DATA, BUT IN THE END
 - **Satellite Data:** Copernicus, MODIS, CHIRPS, GPM (NASA)
 
 #WEBSITE: https://landslide-ai-india-japan.streamlit.app/
+
 ##LIMITATIONS
 - Current version produces a snapshot of  fixed date. Automated scheduling has not been set up.
 - Study area limited: Model was trained on data from India and Japan only. Performance in other regions is untested.
