@@ -92,8 +92,8 @@ if map_type == "Interactive Dots (Hover for details)":
     
     # Optimized loop for dots
     for row in df_live.to_dict('records'):
-        color = 'red' if row['Prediction'] == 1 else 'green'
-    tooltip_text = (
+        color = 'red' if row['Prediction'] == 1 else 'green' 
+        tooltip_text = (
         f"<b>{'HAZARD' if row['Prediction'] == 1 else 'SAFE'}</b><br>"
         f"📍 <b>Lat:</b> {row['latitude']:.4f}, <b>Lon:</b> {row['longitude']:.4f}<br>"
         f"Slope: {row['slope_y']:.2f}°<br>"
