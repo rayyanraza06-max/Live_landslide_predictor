@@ -19,7 +19,7 @@ Thé system isn’t live because automation(cron) hasn’t been set up
    - **Historical Climate:** 5-year Average Rainfall (CHIRPS)
 --->The AI Model:
    - A RANDOM FOREST CLASSIFIER (Scikit-Learn) trained with `class_weight='balanced'` to handle the imbalanced dataset.
-   - **Accuracy:** ~88% (with a 97% recall rate for hazards, ensuring few disasters are missed).
+   - **Accuracy:** ~91% (with a 97% recall rate for hazards, ensuring few disasters are missed).
 ---->The Live System:
    - The system queries NASA's **GPM (Global Precipitation Measurement)** satellite for the actual rainfall over the last 7 days.
    - It merges this live weather with the static terrain data and runs it through the Random Forest model.
@@ -30,9 +30,9 @@ NOTE: I TRIED TO ALSO USE SOIL DATA WITH THE STATIC TERRAIN DATA, BUT IN THE END
 ## Repository Contents
 - `Disaster_Management.ipynb`: The Jupyter Notebook containing data extraction, feature engineering, and model training.
 - `landslide_model.pkl`: The trained Random Forest model.
-- `live_risk_map_python_v3.html`: The interactive live map generated for today.
+- `live_risk_map_python_v3.html`: The interactive live map generated for 24 NOVEMBER 2026.
 - `app.py`: The Streamlit web application code.
-
+  `Data/live_grid_for_python_.csv`: The live prediction grid data used by the app.
 ## Tech Stack
 - **Python** (Pandas, Scikit-Learn, Folium)
 - **Google Earth Engine** (GEE Python API)
