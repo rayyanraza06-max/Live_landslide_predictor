@@ -19,7 +19,7 @@ Thé system isn’t live because automation(cron) hasn’t been set up
    - **Historical Climate:** 5-year Average Rainfall (CHIRPS)
 --->The AI Model:
    - A RANDOM FOREST CLASSIFIER (Scikit-Learn) trained with `class_weight='balanced'` to handle the imbalanced dataset.
-   - **Accuracy:** ~91% (with a 97% recall rate for hazards, ensuring few disasters are missed).
+   - **Accuracy:** ~91% (with a 97% recall rate for hazards, ensuring few disasters are missed).***accuracy likley inflated(check LIMITATIONS)****
 ---->The Live System:
    - The system queries NASA's **GPM (Global Precipitation Measurement)** satellite for the actual rainfall over the last 7 days.
    - It merges this live weather with the static terrain data and runs it through the Random Forest model.
@@ -39,3 +39,7 @@ NOTE: I TRIED TO ALSO USE SOIL DATA WITH THE STATIC TERRAIN DATA, BUT IN THE END
 - **Satellite Data:** Copernicus, MODIS, CHIRPS, GPM (NASA)
 
 #WEBSITE: https://landslide-ai-india-japan.streamlit.app/
+##LIMITATIONS
+- Current version produces a snapshot of  fixed date. Automated scheduling has not been set up.
+- Study area limited: Model was trained on data from India and Japan only. Performance in other regions is untested.
+- Model was evaluated using random test/train split. Landslide points are generally clustered, near points can appear in both training data and test data. This likely inflates the accuracy reported.
