@@ -32,11 +32,12 @@ Thé system isn’t live because automation(cron) hasn’t been set up
 NOTE: I TRIED TO ALSO USE SOIL DATA WITH THE STATIC TERRAIN DATA, BUT IN THE END I HAD A LESSER ACCURACY AND RECALL, THUS I HAD TO DROP THE SOIL FEATURE..(OVERFITTING EXAMPLE)
 
 ## Repository Contents
-- `Disaster_Management.ipynb`: The Jupyter Notebook containing data extraction, feature engineering, and model training.
+- `Notebooks/Disaster_Management.ipynb`: The Jupyter Notebook containing data extraction, feature engineering, and model training.
 - `landslide_model.pkl`: The trained Random Forest model.
 - `live_risk_map_python_v3.html`: The interactive live map generated for 24 NOVEMBER 2026.
 - `app.py`: The Streamlit web application code.
   `Data/live_grid_for_python_.csv`: The live prediction grid data used by the app.
+
 ## Tech Stack
 - **Python** (Pandas, Scikit-Learn, Folium)
 - **Google Earth Engine** (GEE Python API)
